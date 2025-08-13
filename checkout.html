@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/021532d534.js" crossorigin="anonymous"></script>
+    <title>InstaPremium</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '494913433675653');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=494913433675653&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <style>
+      .active {
+        background-color: #8D51FE !important;
+      }
+    </style>
+  </head>
+  <body style="background-color: black; color: white;">
+    <header>
+      <img src="8fRM28h.png" alt="" style="width: 150px;">
+      <span class="saldo">R$ 175,92</span>
+    </header>
+    <div class="realize">
+      <p>Realize agora seu saque de <span style="color: green;">R$ 175,92</span></p>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center; text-align: center; margin: 35px 0px; gap: 15px;">
+      <img style="width: 15px;" src="https://user-images.githubusercontent.com/741969/99538099-3b7a5d00-298b-11eb-9f4f-c3d0cd4a5280.png" alt="">
+      <p style=" font-size: 13px; ">Selecione sua chave PIX</p>
+    </div>
+    <div class="options-pix">
+      <button id="celularBtn"><i class="fa fa-mobile" aria-hidden="true"></i>Celular</button>
+      <button id="cpfBtn"><i class="fa fa-id-card-o" aria-hidden="true"></i>CPF</button>
+    </div>
+    <input type="number" placeholder="Digite aqui...">
+    <a class="btn-checkout" href="">REALIZAR SAQUE</a>
+  </body>
+  <script>
+    const celularBtn = document.getElementById("celularBtn");
+    const cpfBtn = document.getElementById("cpfBtn");
+  
+    celularBtn.addEventListener("click", function() {
+      celularBtn.classList.add("active");
+      cpfBtn.classList.remove("active");
+    });
+  
+    cpfBtn.addEventListener("click", function() {
+      cpfBtn.classList.add("active");
+      celularBtn.classList.remove("active");
+    });
+  </script>
+  
+  <script src="./script.js"></script>
+</html>

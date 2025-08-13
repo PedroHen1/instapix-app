@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="cookies.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="confetti.js"></script>
+    <script 
+    src="https://cdn.xtracky.com/scripts/utm-handler.js"
+    data-token="bc9db88a-bcd0-437f-bd69-12f622d701bd"
+    data-click-id-param="click_id">
+</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>InstaPremium</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '494913433675653');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=494913433675653&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <style>
+      body {
+        overflow-y: hidden; /* Hide vertical scrollbar initially */
+      }
+      
+      .welcome-bar {
+          background-color: #232423; 
+          color: white; 
+          padding: 10px 0; 
+          text-align: center; 
+          position: fixed; 
+          top: 50px;
+          left: 50%; 
+          transform: translateX(-50%);
+          width: 90%; 
+          border-radius: 8px;
+          font-size: 13px;
+                    font-weight: bold;
+          height: 65px;
+          z-index: 9999;
+          transition: opacity 1s; 
+      }
+      /* Classe para ocultar a barra */
+      .welcome-bar.hidden {
+          opacity: 0; /* Torna a barra transparente */
+          pointer-events: none; /* Impede interações com a barra */
+      }
+    </style>
+    <script>
+      // Aguarda 1 segundo e então esconde a barra de boas-vindas
+      // setTimeout(function() {
+      //     document.getElementById('welcomeBar').classList.add('hidden');
+      // }, 2000);
+  </script>
+  <script>
+     let postAtual = 1;
+  
+    $(document).ready(function(){
+      $('.btn-pop-out-foto').click(function() {
+        $('.pop').addClass('d-none')       
+      })
+
+      let saldo = 183.08;
+    $('.sim, .nao').click(function() {
+      // Verifica se o botão clicado pertence ao post atual
+      let buttonId = $(this).attr('id');
+      let buttonPostNumber = parseInt(buttonId.split('-')[1]);
+      
+      if (buttonPostNumber !== postAtual) {
+        return; // Ignora cliques em posts que não são o atual
+      }
+      let valorAGanhar = $(this).attr('data-value');
+      saldo += parseFloat(valorAGanhar);
+
+      let saldoInitial = parseFloat($('.saldo').html().replace('R$ ', ''));
+      let saldoFinal = saldo;
+      let saldoIncrement = (saldoFinal - saldoInitial) / 90;
+      let counter = 0;
+      let interval = setInterval(() => {
+        counter++;
+        $('.saldo').html(`R$ ${(saldoInitial + (saldoIncrement * counter)).toFixed(2)}`);
+        if (counter >= 90) {
+          clearInterval(interval);
+        }
+      }, 33);
+      $('#audio')[0].play();
+
+      if (postAtual === 3) {
+        console.log('caiu aqui', postAtual);
+        $('.pop-final').removeClass('d-none');
+        return;
+      } else {
+        $('.pop-gain').removeClass('d-none');
+        $('.receive').html(`R$ ${valorAGanhar}`);
+        setTimeout(() => {
+          $('.pop-gain').addClass('d-none');
+        }, 2500);
+      }
+
+      triggerConfetti(this);
+      
+      // Habilita scroll temporariamente e faz scroll para post-2
+      setTimeout(() => {
+        $('body').css('overflow-y', 'auto');
+        $('html, body').animate({
+          scrollTop: $('#post-' + postAtual).offset().top
+        }, 1000, function() {
+          // Desabilita scroll novamente após a animação
+          $('body').css('overflow-y', 'hidden');
+        });
+      }, 2500);
+
+      postAtual++
+
+    })
+  })
+ </script>
+</head>
+<audio id="audio" src="./cash.mp3"></audio>
+  <body>
+    <header>
+      <img src="./logo.svg" alt="" style="width: 150px;">
+      <span class="saldo">R$ 183,08</span>
+    </header>
+
+    <div class="pop pop-final d-none">
+      <div class="pop-out-foto">
+        <h1 style="color: #db21b0; margin-bottom: 20px;">PARABÉNS!</h1>
+        <p style="font-size: 16px;">Seu saldo subiu!</p>
+        <div class="progress-ring">
+          <svg class="progress-ring__circle" width="200" height="200">
+            <circle class="progress-ring__background" cx="100" cy="100" r="90" />
+            <circle class="progress-ring__progress" cx="100" cy="100" r="90" />
+          </svg>
+          <div class="progress-content">
+            <span class="amount">R$ 396,92</span>
+          </div>
+        </div>
+        <a class="btn-pop-out-foto" href="saque.html">REALIZAR SAQUE</a>
+      </div>
+    </div>
+
+    <div class="pop pop-gain d-none">
+      <div class="pop-out-foto">
+        <img src="./coins.png" style="height: 220px; width: 220px;" alt="">
+
+        <h1 style="color: black;">PARABÉNS!</h1>
+        <p style="font-size: 15px; margin: 0px;">Você recebeu:</p>
+        <h2 class="receive" style="color: #db21b0; font-weight: bold; font-size: 40px; margin-top: 0px;">R$ 50,00</h2>
+      </div>
+    </div>
+
+    <div id="post-1">
+      <div class="post">
+
+        <div class="header-post">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+  
+            <div class="fotoPerfilmaisa"></div>
+            <div class="post-info">
+              <p>Maisa <img src=" https://cdn-icons-png.flaticon.com/512/7641/7641727.png " style="width: 13px;" alt=""></p>
+              <p>Pagou mais de 147 mil usuários no InstaPix</p>
+            </div>
+          </div>
+          <p>...</p>
+        </div>
+  
+        <div class="post-imgmaisa">
+          
+        </div>
+        <div class="badge-absolute">
+          <p>Maisa vai te pagar <span style="color: rgb(255, 255, 255); font-weight: bold;">R$ 72,04</span> por responder!</p>
+        </div>
+  
+  
+        <div class="bottom-post">
+          <div style="display: flex; align-items: center; justify-content: center ; gap: 10px">
+            <i class="fa fa-heart" aria-hidden="true" style="color:  red; font-size: 20px;"></i>
+            <p>629 mil curtidas</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+          </svg>
+  
+  
+        </div>
+  
+      </div>
+  
+      <div class="interesse">
+        <p>Você tem interesse nessa publicação?</p>
+        <div class="btns-interesse">
+          <a class="nao nao-1" id="nao-1" data-value="72,04">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            Não</a>
+          <a class="sim sim-1" id="sim-1" data-value="72,04">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+            Sim
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="post-2">
+      <div class="post">
+        <div class="header-post">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <div class="fotoPerfiljon"></div>
+            <div class="post-info">
+              <p>Jon Vlogs <img src=" https://cdn-icons-png.flaticon.com/512/7641/7641727.png " style="width: 13px;" alt=""></p>
+              <p>Pagou mais de 147 mil usuários no InstaPix</p>
+            </div>
+          </div>
+          <p>...</p>
+        </div>
+  
+        <div class="post-imgjon">
+          
+        </div>
+  
+        <div class="badge-absolute">
+          <p>Jon Vlogs vai te pagar <span style="color: rgb(255, 255, 255); font-weight: bold;">R$ 67,85</span> por responder!</p>
+        </div>
+  
+  
+        <div class="bottom-post">
+          <div style="display: flex; align-items: center; justify-content: center ; gap: 10px">
+            <i class="fa fa-heart" aria-hidden="true" style="color:  red; font-size: 20px;"></i>
+            <p>219 mil curtidas</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+          </svg>
+  
+  
+        </div>
+  
+      </div>
+  
+      <div class="interesse">
+        <p>Você tem interesse nessa publicação?</p>
+        <div class="btns-interesse">
+          <a class="nao nao-2" id="nao-2" data-value="67,85">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            Não</a>
+          <a class="sim sim-2" id="sim-2" data-value="67,85">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+            Sim
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="post-3">
+
+      <div class="post">
+
+        <div class="header-post">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+  
+            <div class="fotoPerfillarissa"></div>
+            <div class="post-info">
+              <p>Larissa Manoela <img src=" https://cdn-icons-png.flaticon.com/512/7641/7641727.png " style="width: 13px;" alt=""></p>
+              <p>Pagou mais de 147 mil usuários no InstaPix</p>
+            </div>
+          </div>
+          <p>...</p>
+        </div>
+  
+        <div class="post-imglarissa">
+          
+        </div>
+  
+        <div class="badge-absolute">
+          <p>Larissa vai te pagar <span style="color: rgb(255, 255, 255); font-weight: bold;">R$ 73,95</span> por responder!</p>
+        </div>
+  
+  
+        <div class="bottom-post">
+          <div style="display: flex; align-items: center; justify-content: center ; gap: 10px">
+            <i class="fa fa-heart" aria-hidden="true" style="color:  red; font-size: 20px;"></i>
+            <p>577 mil curtidas</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+          </svg>
+  
+  
+        </div>
+  
+      </div>
+  
+      <div class="interesse">
+        <p>Você tem interesse nessa publicação?</p>
+        <div class="btns-interesse">
+          <a class="nao nao-3" id="nao-3" data-value="73,95">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            Não</a>
+          <a class="sim sim-3" id="sim-3" data-value="73,95">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+            Sim
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <script src="./script.js"></script>
+</html>
