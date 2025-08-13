@@ -130,97 +130,112 @@ body {
 }
 
 /* PERFILL */
-.fotoPerfilanitta {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWM6irQMUsltaKhJDvySruWk9YZfrVT_zp8g&s");
+.fotoPerfilcarlinhos {
+  background-image: url("https://midias.correiobraziliense.com.br/_midias/jpg/2025/07/10/carlinhos_maia-56145655.jpg");
   width: 30px;
   height: 30px;
   background-size: cover;
   border-radius: 100%;
 }
 
-.post-imganitta {
-  background-image: url("https://images.megahits.pt/anitta18278983_vertical.jpg");
+.post-imgcarlinhos {
+  background-image: url("https://www.gp1.com.br/media/image_bank/2025/5/carlinhos-maianone.jpg.950x0_q95_crop.webp");
   width: auto;
   height: 450px;
   background-size: cover;
 }
 
-.fotoPerfilluan {
-  background-image: url("https://i.scdn.co/image/ab67616100005174fde13b4ff04ee1c0f33c6878");
+.fotoPerfilana{
+  background-image: url("https://i.pinimg.com/280x280_RS/2f/95/34/2f9534fb479c2176a129a4d01a7a70e3.jpg");
   width: 30px;
   height: 30px;
   background-size: cover;
   border-radius: 100%;
 }
-.post-imgluan {
-  background-image: url("https://i.pinimg.com/736x/c6/90/9c/c6909ca18c3e712754ce81c8d9dac320.jpg");
+.post-imgana {
+  background-image: url("https://i.pinimg.com/736x/fa/a6/3c/faa63c0369751d536bcad07e8162794a.jpg");
   width: auto;
   height: 450px;
   background-size: cover;
 }
 
-.fotoPerfilmarina {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/00/Marina_Ruy_Barbosa.JPG");
+.fotoPerfilcamila {
+  background-image: url("https://livrariascuritiba.vteximg.com.br/arquivos/ids/1886162/LV457436.jpg?v=638212363036530000");
   width: 30px;
   height: 30px;
   background-size: cover;
   border-radius: 100%;
 }
-.post-imgmarina {
-  background-image: url("https://essenciallenews.com.br/wp-content/uploads/2022/03/M-BULGARI-Mc-10-scaled.jpg");
+.post-imgcamila {
+  background-image: url("https://static1.purebreak.com.br/articles/3/11/66/43/@/542613-camila-loures-responde-web-apos-aparecer-580x0-2.jpg");
   width: auto;
   height: 450px;
   background-size: cover;
 }
 
-.fotoPerfilfernanda {
-  background-image: url("https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/01/Fernanda-Torres-pronta-para-Globo-de-Ouro_b5afce.jpg?w=1200&h=1200&crop=1");
+.fotoPerfilcleo {
+  background-image: url("https://www.estrelando.com.br/uploads/2019/06/21/cleonota-1561141715.jpg");
   width: 30px;
   height: 30px;
   background-size: cover;
   border-radius: 100%;
 }
-.post-imgfernanda {
-  background-image: url("https://fringe.com.br/wp-content/uploads/2025/01/entretenimento-fernanda-torres-vence-o-globo-de-ouro-de-melhor-atriz-por-ainda-estou-aqui-1736136753.jpeg");
+.post-imgcleo {
+  background-image: url("https://s2-oglobo.glbimg.com/16lW2V8y8jTtq_A_EE3NMPYUpoQ=/0x0:1242x1457/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/g/a/cOWK1vQLSOsYcNAy2Pvg/img-7991.jpg");
   width: auto;
   height: 450px;
   background-size: cover;
 }
 
-.fotoPerfilwhindersson {
-  background-image: url("https://bahiaeconomica.com.br/wp/wp-content/uploads/2025/08/284020.jpeg");
+.fotoPerfilcaio {
+  background-image: url("https://i.pinimg.com/474x/d5/07/03/d5070354eecefd526e8e3305677a0a69.jpg");
   width: 30px;
   height: 30px;
   background-size: cover;
   border-radius: 100%;
 }
-.post-imgwhindersson {
-  background-image: url("https://midias.agazeta.com.br/2021/11/04/o-humorista-whindersson-nunes-638028-article.jpg");
+.post-imgcaio {
+  background-image: url("https://i.pinimg.com/736x/4f/e8/d6/4fe8d6236224ca7db0fda456b45cdcef.jpg");
   width: auto;
   height: 450px;
   background-size: cover;
 }
 
-.fotoPerfilfelipe {
-  background-image: url("https://politica.estadao.com.br/blogs/estadao-verifica/wp-content/uploads/sites/690/2020/05/foto-instagram-felipeneto_260520201626.jpg");
+.fotoPerfilmedina {
+  background-image: url("https://www.estrelando.com.br/uploads/2025/01/12/medina-destaque-1736689182.jpg");
   width: 30px;
   height: 30px;
   background-size: cover;
   border-radius: 100%;
 }
-.post-imgfelipe {
-  background-image: url("https://premioibest.com/wp-content/uploads/2021/06/felipeNeto.png");
+.post-imgmedina {
+  background-image: url("https://www.estrelando.com.br/uploads/2021/07/30/gabriel-medina-post-1627667981.jpg");
   width: auto;
   height: 450px;
   background-size: cover;
 }
+
+.fotoPerfilbianca {
+  background-image: url("https://capricho.abril.com.br/wp-content/uploads/2019/01/bianca-andrade-boca-rosa.jpg?quality=85&strip=info");
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  border-radius: 100%;
+}
+.post-imgbianca {
+  background-image: url("https://www.estrelando.com.br/uploads/2021/09/20/bianca-andrade-fred-1632160874.jpg");
+  width: auto;
+  height: 450px;
+  background-size: cover;
+}
+
 
 
 
 /* POSTTTTTTTTTTTTTTTTTTTT */
 
 /* Estilos para scroll entre posts */
-#post-1, #post-2, #post-3, #post-4, #post-5, #post-6 {
+#post-1, #post-2, #post-3, #post-4, #post-5, #post-6, #post-7 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -342,8 +357,8 @@ body {
 
 .progress-ring {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   margin: 20px 0;
 }
 
@@ -376,7 +391,7 @@ body {
 }
 
 .amount {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   color: #4ADE80;
 }

