@@ -336,7 +336,7 @@ src="https://www.facebook.com/tr?id=494913433675653&ev=PageView&noscript=1"
       setTimeout(mostrarNotificacaoAleatoria, 5000);
       
       // Depois a cada 10 segundos
-      setInterval(mostrarNotificacaoAleatoria, 17000);
+      setInterval(mostrarNotificacaoAleatoria, 13000);
     });
 
   </script>
@@ -368,7 +368,7 @@ src="https://www.facebook.com/tr?id=494913433675653&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <div class="pop pop-2 d-none">
+    <div class="pop pop-2 ">
       <div class="pop-out-foto">
         <h1 style="color: #db21b0; margin-bottom: 20px;">PARABÉNS!</h1>
         <p style="font-size: 16px;">Você acaba de ganhar</p>
@@ -378,8 +378,21 @@ src="https://www.facebook.com/tr?id=494913433675653&ev=PageView&noscript=1"
             <circle class="progress-ring__progress" cx="100" cy="100" r="90" />
           </svg>
           <div class="progress-content">
-            <span class="amount">R$ 996,40</span>
+            <span class="amount">R$ <span id="amount">00,00</span></span>
           </div>
+          <script>
+            let amount = 500;
+            let interval = setInterval(() => {
+              if (amount < 99640) {
+                amount += 200;
+                document.getElementById("amount").innerText = (amount / 100).toFixed(2).replace('.', ',');
+              } else {
+                amount = 99640;
+                document.getElementById("amount").innerText = (amount / 100).toFixed(2).replace('.', ',');
+                clearInterval(interval);
+              }
+            }, 1);
+          </script>
         </div>
         <a class="btn-pop-out-foto" href="saque.html">REALIZAR SAQUE</a>
       </div>
